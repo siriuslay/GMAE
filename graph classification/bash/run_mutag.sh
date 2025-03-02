@@ -26,7 +26,7 @@ mkdir -p $save_path
 
 python entry.py --num_workers 8 --seed $seed --batch_size 16 \
       --dataset_name $dataset_name \
-      --gpus 1 --accelerator ddp --precision 16 \
+      --gpus 1 --accelerator cuda --precision 16 \
       $arch --n_encoder_layers $n_encoder_layers --n_decoder_layers $n_decoder_layers\
       --warmup_updates $warmup_updates --tot_updates $tot_updates \
       --default_root_dir $save_path --mask_ratio $mask_ratio

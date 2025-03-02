@@ -22,9 +22,9 @@ def get_dataset(dataset_name='abaaba'):
             'loss_fn': F.nll_loss,
             'metric': 'loss',
             'metric_mode': 'min',
-            'train_dataset': MyZINCDataset(subset=True, root='/data/yicli/sixiao/dataset/ZINC', split='train'),
-            'valid_dataset': MyZINCDataset(subset=True, root='/data/yicli/sixiao/dataset/ZINC', split='val'),
-            'test_dataset': MyZINCDataset(subset=True, root='/data/yicli/sixiao/dataset/ZINC', split='test'),
+            'train_dataset': MyZINCDataset(subset=True, root='dataset/ZINC', split='train'),
+            'valid_dataset': MyZINCDataset(subset=True, root='dataset/ZINC', split='val'),
+            'test_dataset': MyZINCDataset(subset=True, root='dataset/ZINC', split='test'),
             'max_node': 128,
         }
     elif dataset_name in ['PROTEINS', 'BZR', 'COX2', 'DHFR', 'ER_MD']:
@@ -33,7 +33,7 @@ def get_dataset(dataset_name='abaaba'):
             'loss_fn': F.binary_cross_entropy_with_logits,
             'metric': 'loss',
             'metric_mode': 'min',
-            'dataset': MyTUDataset(root=f'/data/yicli/sixiao/dataset/{dataset_name}', name=dataset_name),
+            'dataset': MyTUDataset(root=f'dataset/{dataset_name}', name=dataset_name),
             'max_node': 128,
         }
     elif dataset_name in ['NCI1', 'MUTAG']:
@@ -42,7 +42,7 @@ def get_dataset(dataset_name='abaaba'):
             'loss_fn': F.binary_cross_entropy_with_logits,
             'metric': 'loss',
             'metric_mode': 'min',
-            'dataset': MyTUDataset(root=f'/data/yicli/sixiao/dataset/{dataset_name}', name=dataset_name),
+            'dataset': MyTUDataset(root=f'dataset/{dataset_name}', name=dataset_name),
             'max_node': 1024,
         }
     else:
